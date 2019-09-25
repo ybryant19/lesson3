@@ -70,11 +70,15 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-#paginate
-gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+# paginate
+gem 'will_paginate'
+#gem 'will_paginate-bootstrap'
+gem 'bootstrap-will_paginate', '~> 1.0'
 
 gem 'simple_form'
 
 gem "font-awesome-rails"
+
+# Devise gem
+gem 'devise'
 
