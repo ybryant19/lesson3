@@ -5,7 +5,6 @@ class PlacesController < ApplicationController
     @places = Place.all.paginate(page: params[:page], per_page: 2)
   end
 
-
   def new
     @place = Place.new
   end
@@ -13,6 +12,10 @@ class PlacesController < ApplicationController
   def create  
     current_user.places.create(place_params)
     redirect_to root_path
+  end
+
+  def show
+    @place = Place.find(params[:id])
   end
 
   private
