@@ -4,7 +4,7 @@
   <br/><br/>
   <p><%= @place.description %></p>
   
-  <%= image_tag @photo.picture.to_s %>
+  
 
   <% if @place.latitude.present? && @place.longitude.present? %>
 
@@ -80,7 +80,7 @@
 </div>
 
 <div class="clear"></div>
-<div class="row">
+<div class="row"></div>
 
 <% @place.comments.each do |comment| %>
   <div class="col-12 col-sm-6">
@@ -110,12 +110,11 @@
       <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
         <div class="modal-body">
           <%= f.input :picture %>
-          <%= f.input :caption, as: :select, collection: Photo: %>
-         
+          <%= f.input :caption %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit "Add a Picture", class: 'btn btn-primary' %>
+          <%= f.submit "Add a photo", class: 'btn btn-primary' %>
         </div>
       <% end %> 
     </div>
@@ -130,11 +129,11 @@
   </button>
 </div>
 
-<div class="clear"></div>
-<div class="row">
+<div class="row"></div>
 
 
 <% @place.photos.each do |photo| %>
+ <%= image_tag @photo.picture.to_s %>
   <div class="col-12 col-sm-6">
     <blockquote>
       <% if photo.humanized_rating.present? %>
@@ -145,19 +144,6 @@
       <small><%= photo.user.email %></small>
     </blockquote>
   </div>
-<% end %>
+ <% end %>
 
 
-<div class="clear"></div>
-<div class="col-10 offset-1">
-  <h1>Picture</h1>
-  <%= simple_form_for @photo, url: place_photos_path(@place) do |f| %>
-    <%= f.input :caption %>
-    <%= f.input :picture %>
-    <%= f.submit "Add a Photo", class: 'btn btn-primary' %>
-    <%= image_tag photo.picture.to_s %>
-  <% end %>
-</div>
-
-
-</div>
